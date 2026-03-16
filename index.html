@@ -23,7 +23,6 @@
                 <p>or</p>
                 <button class="btn" id="fileButton">Browse Files</button>
                 <input type="file" id="fileInput" accept=".pdf" hidden>
-                <p class="file-info" id="fileInfo"></p>
             </div>
         </section>
 
@@ -41,12 +40,42 @@
             </div>
     
             <div class="audio-controls">
+                
+                <div id="timeDisplay" style="text-align: right; font-family: 'Courier New', Courier, monospace; font-weight: bold; font-size: 14px; color: #667eea; margin-bottom: 5px;">
+                    0:00 / 0:00
+                </div>
                 <audio id="audioPlayer" controls style="width: 100%; margin-bottom: 20px;"></audio>
 
+                <div class="voice-selection" style="margin-bottom: 15px;">
+                    <label for="voiceSelect" style="display: block; font-size: 13px; color: #666; margin-bottom: 5px; font-weight: 600;">🗣️ Select Voice:</label>
+                    <select id="voiceSelect" class="voice-dropdown"></select>
+                </div>
+
+                <div class="control-row" style="margin-bottom: 15px; display: flex; align-items: center; gap: 10px;">
+                    <i class="fas fa-volume-up" style="color: #667eea; width: 20px;"></i>
+                    <input type="range" id="volumeSlider" min="0" max="1" step="0.1" value="1" style="flex: 1;">
+                    <span id="volumeValue" style="font-size: 12px; min-width: 35px; color: #666;">100%</span>
+                </div>
+
+                <div class="control-row" style="margin-bottom: 25px; display: flex; align-items: center; gap: 10px;">
+                    <i class="fas fa-running" style="color: #667eea; width: 20px;"></i>
+                    <input type="range" id="speedSlider" min="0.5" max="2" step="0.1" value="1" style="flex: 1;">
+                    <span id="speedValue" style="font-size: 12px; min-width: 35px; color: #666;">1.0x</span>
+                </div>
+
                 <div class="button-group">
+                    <button class="btn" id="backBtn" title="Back 10 seconds">
+                        <i class="fas fa-backward"></i> -10s
+                    </button>
+
                     <button class="btn" id="playBtn">▶️ Play</button>
-                    <button class="btn" id="downloadBtn">💾 Download MP3</button>
-                    <button class="btn" id="newFileBtn">📁 New File</button>
+
+                    <button class="btn" id="forwardBtn" title="Forward 10 seconds">
+                        10s + <i class="fas fa-forward"></i>
+                    </button>
+
+                    <button class="btn secondary" id="downloadBtn">💾 Download</button>
+                    <button class="btn secondary" id="newFileBtn">📁 New File</button>
                 </div>
             </div>
         </section>
